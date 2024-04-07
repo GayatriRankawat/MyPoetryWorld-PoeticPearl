@@ -21,11 +21,11 @@
 }
 
 .box1{
-    background-image: url("box1.jpg");
+    background-image: url("img/41.jpg");
     margin-left: 25px;
 }
 .box2{
-    background-image: url("box2.jpg");
+    background-image: url("img/42.jpg");
     
 
 }.box3{
@@ -34,15 +34,15 @@
 
     
 }.box4{
-    background-image: url("box3 (3).jpg");
+    background-image: url("img/45.jpg");
     
 
 }.box5{
-    background-image: url("box5.jpg");
+    background-image: url("img/46.jpg");
     
 
 }.box6{
-    background-image: url("box6.jpg");
+    background-image: url("img/44.jpg");
 }
 .next{
     background-image: url("img/feather.jpg");
