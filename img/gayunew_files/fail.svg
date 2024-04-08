@@ -1,0 +1,28 @@
+<svg width="150" height="100" viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="pic_fail">
+<g id="Group 163520">
+<g id="Group 163535">
+<path id="Vector" d="M106.4 12H43.6C38.2981 12 34 16.2981 34 21.6V77.4C34 82.7019 38.2981 87 43.6 87H106.4C111.702 87 116 82.7019 116 77.4V21.6C116 16.2981 111.702 12 106.4 12Z" fill="#E3F3FF"/>
+<g id="Clip path group">
+<mask id="mask0_1428_29884" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="12" width="82" height="75">
+<path id="Vector_2" d="M106.4 12H43.6C38.2981 12 34 16.2981 34 21.6V77.4C34 82.7019 38.2981 87 43.6 87H106.4C111.702 87 116 82.7019 116 77.4V21.6C116 16.2981 111.702 12 106.4 12Z" fill="#E3F3FF"/>
+</mask>
+<g mask="url(#mask0_1428_29884)">
+<circle id="Ellipse 2372" cx="98.7459" cy="85.2052" r="24.7354" fill="#227BFE"/>
+<circle id="Ellipse 2373" cx="54.717" cy="79.7643" r="37.1032" fill="#4E95FF"/>
+<path id="Vector_3" d="M95.1667 37.8888C98.8793 37.8888 101.889 34.8791 101.889 31.1666C101.889 27.454 98.8793 24.4443 95.1667 24.4443C91.4541 24.4443 88.4445 27.454 88.4445 31.1666C88.4445 34.8791 91.4541 37.8888 95.1667 37.8888Z" fill="#FFC10A"/>
+</g>
+</g>
+</g>
+</g>
+<g id="Group 163538">
+<g id="Group 163753">
+<circle id="Ellipse 2388" cx="41" cy="74" r="15" fill="#FE6363"/>
+<g id="Group 163548">
+<rect id="Rectangle 10050" x="40" y="70" width="2" height="12" rx="1" fill="white"/>
+<circle id="Ellipse 2389" cx="41" cy="67" r="1" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

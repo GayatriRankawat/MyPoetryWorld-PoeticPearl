@@ -1,0 +1,193 @@
+$("#aside_feedback").click(function(){$("#feedback").toggle()})
+$(".free_online_video_converter_2").click(function(){
+$("#upload").trigger("click");
+$(window).scrollTop(0);
+});
+$('.info-slides').unslider({infinite: true,autoplay:true,keys: {prev: 0,next: 0},delay:6000});
+$('.faq_box li span').click(function(){
+$(this).parent().toggleClass('active').siblings().removeClass('active');
+});
+$('.universally_box ul li').click(function(){
+$(this).addClass('active').siblings().removeClass('active');
+$('.universally_box div img').eq($(this).index()).addClass('active').siblings().removeClass('active');
+});
+$('.feedback input, .feedback #form_contents').focus(function(){
+  $(this).addClass('active')
+})
+$('.feedback input, .feedback #form_contents').blur(function(){
+  $(this).removeClass('active')
+})
+  function checkForm() {
+    var re = /^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    var mail = $.trim($("#mail").val());
+    if (document.getElementById('mail').value == "") {
+        alert('Email is empty!');
+        document.getElementById('mail').focus();
+        return false;
+    }
+    if (!re.test(mail)) {
+        alert("Please enter a valid email!");
+        $("#mail").focus();
+        return false;
+    }
+    if($('#form_contents').val()==''){
+      alert('Enter your email here!')
+      return false;
+    }
+    return true;
+  }
+  function send_submit() {
+    var product_id = '173'
+    var os = get_os()
+    if (os == 'WIN32' || os == 'WIN64') {
+      product_id = '173'
+    } else if (os == 'mac') {
+      product_id = '173'
+    }
+    $_POST = {'f_source' : '3', 'product_id' : product_id, "email":"", "content":"","os" :os};
+    $_POST["email"] = $("#mail").val();
+    $_POST["content"] = $("#form_contents").val();
+    if (checkForm() == true) {
+        $(".info_form").fadeIn("slow").delay(4000).fadeOut("slow");
+        $.ajax({
+            url: "https://support.aiseesoft.com/api/feedback/v1/",
+            type: "post",
+            data: $_POST,
+            success: function(res) {
+              console.log(res)
+            },
+            error: function(e) {
+              console.log(e)
+            },
+            complete: function(e) {
+              $("#feedback").css({"display":"none"});
+              $('.feedback-mask').css({
+                'display': 'none'
+              })
+              $("#mail").val('')
+              $("#form_contents").val('')
+            }
+        });
+      
+    }
+  };
+
+  function get_os(){
+    var agent = navigator.userAgent.toLowerCase();
+    var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
+    if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
+      return 'WIN32'
+    }
+    if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
+      return 'WIN64'
+    }
+    if(isMac){
+      return 'MAC'
+    }
+  }
+  //拖拽图片
+  (function(){
+    if(!device_confirm()){
+      $(".printing_box ul li i").on("touchstart",function(ev){
+          var ind=$(this).parent().index();
+          var that=$(".printing_box");
+          var a=ev.originalEvent.changedTouches[0].pageX-$(".printing_box li").eq(ind).children("i").position().left
+          $(document).on("touchmove",function(ev){
+            var x=ev.originalEvent.changedTouches[0].pageX-that.position().left-a;
+            if(x<=-50){
+              x=-50;
+            };
+            if(x>=$(".printing_box li").width()-$(".printing_box li").eq(ind).children("i").width()+40){
+              x=$(".printing_box li").width()-$(".printing_box li").eq(ind).children("i").width()+40;
+            };
+            $(".printing_box li").eq(ind).children("div").css("width",x+$(".printing_box li").eq(ind).children("i").width()/2);
+            $(".printing_box li").eq(ind).children("i").css('left',x+20);
+          });
+        $(document).on("touchend",function(){
+          $(document).off('touchmove');
+        });
+      });
+    }else{
+      $(".printing_box ul li i").mousedown(function(ev){
+          var ind=$(this).parent().index();
+          var that=$(".printing_box");
+          var a=ev.pageX-$(".printing_box li").eq(ind).children("i").position().left;
+          $(document).mousemove(function(ev){
+            var x=ev.pageX-that.position().left-a;
+            if(x<=-20){
+              x=-20;
+            };
+            if(x>=$(".printing_box li").width()-$(".printing_box li").eq(ind).children("i").width()+20){
+              x=$(".printing_box li").width()-$(".printing_box li").eq(ind).children("i").width()+20;
+            };
+            $(".printing_box li").eq(ind).children("div").css("width",x+$(".printing_box li").eq(ind).children("i").width()/2);
+            $(".printing_box li").eq(ind).children("i").css('left',x+20);
+          });
+        $(document).mouseup(function(){
+          $(document).off('mousemove');
+        });
+      });
+    }
+  })();
+  //轮播
+  (function(){
+    var i=0;
+    var time=null;
+    function run(){
+      time=setInterval(function(){
+        i++;
+        if(i>=$(".printing_box ul li").length-2){
+          i=0;
+        }
+        $('.printing_box ul').animate({
+          left:-$('.printing_box ul li').outerWidth(true)*i
+        });
+      },10000)
+    }
+    run();
+    $('.printing .btn_box i.left').click(function(){
+      i--
+      if(i<0){
+        i=$(".printing_box ul li").length-3;
+      }
+      $('.printing_box ul').animate({
+        left:-$('.printing_box ul li').outerWidth(true)*i
+      });
+      clearInterval(time);
+      run();
+    });
+    $('.printing .btn_box i.right').click(function(){
+      i++
+      if(i>=$(".printing_box ul li").length-2){
+        i=0;
+      }
+      $('.printing_box ul').animate({
+        left:-$('.printing_box ul li').outerWidth(true)*i
+      });
+      clearInterval(time);
+      run();
+    });
+  })();
+
+  // 系统判断下载
+  if(system_confirm()=='mac'){
+    $('.mac_inline').css('display','inline-block')
+    $('.win_inline').hide()
+  }else{
+    $('.win_inline').css('display','inline-block')
+    $('.mac_inline').hide()
+  }
+  // 判断按钮是否显示
+  if(device_confirm()==false){
+    $('.banner p.rec_btn').hide()
+    $('.banner_box>div>p.info').hide()
+    $('.banner .mobile_box').show()
+    if(system_confirm()=='mac'){
+      $('.banner .mobile_box a.googlePlay').hide()
+    }else{
+      $('.banner .mobile_box a.AppStore').hide()
+    }
+  }
+  $(window).resize(function(){
+		$('#header .slidingDiv #search-container input#search_btn').val('Search');
+  })

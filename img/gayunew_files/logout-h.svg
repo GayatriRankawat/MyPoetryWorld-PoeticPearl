@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切换6备份</title>
+    <g id="icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="切换6备份">
+            <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+            <g id="编组-3" transform="translate(4.000000, 3.000000)">
+                <line x1="8" y1="9" x2="16" y2="9" id="形状_34" stroke="#FF3D7F" stroke-width="2"></line>
+                <polygon id="多边形_4" fill="#FF3D7F" points="17.99 9 13 12 13 6"></polygon>
+                <path d="M15,15 C15,16.6568542 13.6568542,18 12,18 L3,18 C1.34314575,18 0,16.6568542 0,15 L0,3 C0,1.34314575 1.34314575,0 3,0 L12,0 C13.6568542,0 15,1.34314575 15,3" id="圆角矩形_5" stroke="#FF3D7F" stroke-width="2"></path>
+            </g>
+        </g>
+    </g>
+</svg>
